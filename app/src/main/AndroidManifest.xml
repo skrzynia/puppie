@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Pappie"
         tools:targetApi="31">
         <activity
+            android:name="org.wit.puppie.activities.ListAllPlacemarks"
+            android:exported="false" />
+        <activity
             android:name="org.wit.puppie.activities.AddPlacemark"
             android:exported="true">
             <intent-filter>
