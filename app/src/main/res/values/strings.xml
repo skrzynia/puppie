@@ -7,4 +7,6 @@
     <string name="button_addPlacemark">Add Placemark</string>
     <string name="button_shootPicture">Take a picture</string>
     <string name="change_placemark_image">Change Image\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
