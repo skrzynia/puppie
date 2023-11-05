@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewpager2.widget.ViewPager2
@@ -63,10 +65,35 @@ class ListAllPlacemarks : AppCompatActivity(), PlacemarkListener {
         }.attach()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.item_add -> {
+                val launcherIntent = Intent(this, AddPlacemark::class.java)
+                getResult.launch(launcherIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private val getResult =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ){
+            if (it.resultCode == Activity.RESULT_OK) {
+                (bind.viewPager.adapter)?.
+                notifyItemRangeChanged(0, 3)
+            }
+        }
 
     override fun onPlacemarkClick(placemark: PlacemarkModel, position: Int) {
-        TODO("Not yet implemented")
+        val launcherIntent = Intent(this, AddPlacemark::class.java)
+        launcherIntent.putExtra("placemark_edit", placemark)
+
     }
 
 

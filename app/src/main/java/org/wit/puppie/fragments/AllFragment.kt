@@ -32,14 +32,14 @@ class AllFragment : Fragment() {
         val viewPager = binding?.rvid
         pos?.let {
             when(pos){
-                0 -> viewPager?.adapter = getAdapter(listOf(PlacemarkModel("dwujeczka", "jak mam to wyswietlic?"),PlacemarkModel("no nie wiem"), PlacemarkModel("TRZECIE!!!!")))
-                1 -> viewPager?.adapter = getAdapter(listOf(PlacemarkModel("jest"), PlacemarkModel("siemka!")))
-                2 -> viewPager?.adapter = getAdapter(listOf(PlacemarkModel("siema")))
+                0 -> viewPager?.adapter = setAdapter()
+                1 -> viewPager?.adapter = setAdapter()
+                2 -> viewPager?.adapter = setAdapter()
                 else -> {}
             }
         }
     }
-    fun getAdapter(list: List<PlacemarkModel>): PlacemarkAdapter
+    fun setAdapter(list: List<PlacemarkModel>): PlacemarkAdapter
     {
         val placemarkAdapter = PlacemarkAdapter(list)
         i("${placemarkAdapter.itemCount}")
