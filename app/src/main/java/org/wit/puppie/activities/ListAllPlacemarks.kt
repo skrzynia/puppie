@@ -93,46 +93,6 @@ class ListAllPlacemarks : AppCompatActivity(), PlacemarkListener {
     override fun onPlacemarkClick(placemark: PlacemarkModel, position: Int) {
         val launcherIntent = Intent(this, AddPlacemark::class.java)
         launcherIntent.putExtra("placemark_edit", placemark)
-
     }
 
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        bind = ActivityListAllPlacemarksBinding.inflate(layoutInflater)
-//        setContentView(bind.root)
-//        bind.addToolbar.title = title
-//        setSupportActionBar(bind.addToolbar)
-//
-//        app = application as MainApp
-//
-//        val list = listOf(PlacemarkModel("Uno","Due"), PlacemarkModel("Duo", "Tre"), PlacemarkModel("Duo", "Tre"))
-//        bind.viewPager.adapter = PlacemarkAdapter(list, this)
-//        TabLayoutMediator(bind.tabLayout, bind.viewPager) {tab, position ->
-//            val tabNames = listOf("All", "Popular", "Recomended")
-//            tab.text = tabNames[position]
-//        }.attach()
-//
-//    }
-//
-//    override fun onPlacemarkClick(placemark: PlacemarkModel, position: Int) {
-//        val launcherIntent = Intent(this, AddPlacemark::class.java)
-//        launcherIntent.putExtra("placemark_edit", placemark)
-//        this.position = position
-//        getClickResult.launch(launcherIntent)
-//
-//    }
-//
-//    private val getClickResult =
-//        registerForActivityResult(
-//            ActivityResultContracts.StartActivityForResult()
-//        ) {
-//            if (it.resultCode == Activity.RESULT_OK) {
-//                (bind.viewPager.adapter)?.
-//                notifyItemRangeChanged(0,list.size)
-//            }
-//            else // Deleting
-//                if (it.resultCode == 99)
-//                    (bind.viewPager.adapter)?.notifyItemRemoved(position)
-//        }
 }

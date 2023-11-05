@@ -69,6 +69,14 @@ class PlacemarkJSONStore(private val context: Context) : PlacemarkStore {
         serialize()
     }
 
+    override fun getRecomended():MutableList<PlacemarkModel> {
+        return findAll().subList(0,2)
+    }
+
+    override fun getPopular(): MutableList<PlacemarkModel> {
+        return findAll().subList(findAll().size - 3, findAll().size - 2)
+    }
+
     private fun logAll() {
         placemarks.forEach { Timber.i("$it") }
     }

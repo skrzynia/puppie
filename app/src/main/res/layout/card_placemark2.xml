@@ -41,17 +41,6 @@
                 app:layout_constraintTop_toBottomOf="@id/header_image" />
 
             <TextView
-                android:id="@+id/subhead"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="I'm a subhead"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title" />
-
-            <TextView
                 android:id="@+id/body"
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="match_parent"
@@ -61,10 +50,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subhead" />
+                app:layout_constraintTop_toBottomOf="@id/title" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/details_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Details"
