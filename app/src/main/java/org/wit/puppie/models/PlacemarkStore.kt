@@ -7,4 +7,5 @@ interface PlacemarkStore {
     fun delete(placemark: PlacemarkModel)
     fun getRecomended(): List<PlacemarkModel>
     fun getPopular(): List<PlacemarkModel>
+    fun deleteAll(): Unit
 }

@@ -76,6 +76,13 @@ class ListAllPlacemarks : AppCompatActivity(), PlacemarkListener {
                 val launcherIntent = Intent(this, AddPlacemark::class.java)
                 getResult.launch(launcherIntent)
             }
+            R.id.item_delete ->
+            {
+                setResult(99)
+                app.placemarks.deleteAll()
+                finish()
+                startActivity(Intent(this,ListAllPlacemarks::class.java))
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -86,7 +93,7 @@ class ListAllPlacemarks : AppCompatActivity(), PlacemarkListener {
         ){
             if (it.resultCode == Activity.RESULT_OK) {
                 (bind.viewPager.adapter)?.
-                notifyItemRangeChanged(0, 3)
+                notifyItemRangeChanged(0, app.placemarks.findAll().size)
             }
         }
 

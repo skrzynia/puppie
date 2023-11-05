@@ -70,11 +70,16 @@ class PlacemarkJSONStore(private val context: Context) : PlacemarkStore {
     }
 
     override fun getRecomended():MutableList<PlacemarkModel> {
-        return findAll().subList(0,2)
+        return if (findAll().size > 2) findAll().subList(0,2) else findAll()
     }
 
     override fun getPopular(): MutableList<PlacemarkModel> {
-        return findAll().subList(findAll().size - 3, findAll().size - 2)
+        return if (findAll().size > 2) findAll().subList(findAll().size - 3, findAll().size - 1) else findAll()
+    }
+
+    override fun deleteAll() {
+        placemarks.clear()
+        serialize()
     }
 
     private fun logAll() {
